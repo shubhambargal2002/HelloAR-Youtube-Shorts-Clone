@@ -1,16 +1,16 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-body{
+body {
   display: flex;
   align-items: center;
   justify-content: center;
   background: #000;
 }
 
-.video_container{
+.video_container {
   height: 100vh;
   display: flex;
   align-items: center;
@@ -18,14 +18,14 @@ body{
   position: relative;
 }
 
-video{
+video {
   height: 100%;
   width: 500px;
   background: #000;
   cursor: pointer;
 }
 
-.play_pause_button{
+.play_pause_button {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -34,7 +34,7 @@ video{
   outline: none;
 }
 
-.tilte{
+.tilte {
   position: absolute;
   font-size: 25px;
   font-weight: bold;
@@ -43,7 +43,7 @@ video{
   left: 50px;
 }
 
-.like_comment_share{
+.like_comment_share {
   position: absolute;
   right: 80px;
   bottom: 120px;
@@ -52,31 +52,37 @@ video{
   row-gap: 30px;
 }
 
-.like_button, .comment_button,.share_button{
+.like_button,
+.comment_button,
+.share_button {
   cursor: pointer;
 }
 
-.swipe_container{
+.swipe_container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 10px;
   position: absolute;
   bottom: 20px;
   z-index: 1;
 }
 
-.swipe_up, .swipe_down{
+.swipe_up,
+.swipe_down {
   cursor: pointer;
 }
 
-@media(max-width:992px){
-  video{
+@media (max-width: 992px) {
+  video {
     width: 100%;
   }
 
-  .swipe_container{
+  .swipe_container {
     display: none;
   }
 
-  .like_comment_share{
+  .like_comment_share {
     right: 40px;
   }
 }
