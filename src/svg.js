@@ -11,18 +11,18 @@ const ShareSvg = () => {
     >
       <g
         fill="#ffffff"
-        fill-rule="nonzero"
+        fillRule="nonzero"
         stroke="none"
-        stroke-width="1"
-        stroke-linecap="butt"
-        stroke-linejoin="miter"
-        stroke-miterlimit="10"
-        stroke-dasharray=""
-        stroke-dashoffset="0"
-        font-family="none"
-        font-weight="none"
-        font-size="none"
-        text-anchor="none"
+        strokeWidth="1"
+        strokeLinecap="butt"
+        strokeLinejoin="miter"
+        strokeMiterlimit="10"
+        strokeDasharray=""
+        strokeDashoffset="0"
+        fontFamily="none"
+        fontWeight="none"
+        fontSize="none"
+        textAnchor="none"
         style={{ mixBlendMode: "normal", cursor:"pointer" }}
       >
         <g transform="scale(10.66667,10.66667)">
@@ -44,7 +44,7 @@ const CommentSvg = () => {
       width="30px"
       height="30px"
       viewBox="0 0 111.686 122.879"
-      enable-background="new 0 0 111.686 122.879"
+      enableBackground="new 0 0 111.686 122.879"
       fill="#ffffff"
       style={{cursor:"pointer"}}
     >
@@ -71,7 +71,7 @@ const LikeSvg = ({liked, onClick}) => {
       <style type="text/css"></style>
       <g>
         <path
-          class="st0"
+          className="st0"
           d="M60.83,17.19C68.84,8.84,74.45,1.62,86.79,0.21c23.17-2.66,44.48,21.06,32.78,44.41 c-3.33,6.65-10.11,14.56-17.61,22.32c-8.23,8.52-17.34,16.87-23.72,23.2l-17.4,17.26L46.46,93.56C29.16,76.9,0.95,55.93,0.02,29.95 C-0.63,11.75,13.73,0.09,30.25,0.3C45.01,0.5,51.22,7.84,60.83,17.19L60.83,17.19L60.83,17.19z"
         />
       </g>
