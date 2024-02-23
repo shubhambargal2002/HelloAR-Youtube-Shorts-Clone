@@ -13,6 +13,17 @@ function App() {
   ];
   const [currentVideo, setCurrentVideo] = useState(0);
 
+  // Initialize liked states for each video
+  const initialLikedStates = Array(videos.length).fill(false);
+  const [likedStates, setLikedStates] = useState(initialLikedStates);
+
+  const handleLike = () => {
+    // Copy the array to avoid mutating the state directly
+    const newLikedStates = [...likedStates];
+    newLikedStates[currentVideo] = !newLikedStates[currentVideo];
+    setLikedStates(newLikedStates);
+  };
+
   const handleSwipe = (direction) => {
     if (direction === "up" && currentVideo < videos.length - 1) {
       setCurrentVideo((prev) => prev + 1);
@@ -29,6 +40,8 @@ function App() {
       src={videos[currentVideo].src}
       title={fileName}
       handleSwipe={handleSwipe}
+      handleLike={handleLike}
+      liked={likedStates[currentVideo]}
     />
   );
 }

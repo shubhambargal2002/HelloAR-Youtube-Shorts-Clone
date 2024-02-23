@@ -58,7 +58,7 @@ const Video = ({ src, title, handleSwipe }) => {
 
   return (
     <div ref={ref} className="video_container">
-      <video ref={videoRef} src={src} controls={false} autoPlay loop />
+      <video ref={videoRef} src={src} autoPlay loop />
 
       <button onClick={handlePlayPause} className="play_pause_button">
         {isPlaying ? "" : ""}
