@@ -1,38 +1,78 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body{
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: #000;
 }
 
-.App-link {
-  color: #61dafb;
+.video_container{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+video{
+  height: 100%;
+  width: 500px;
+  background: #000;
+  cursor: pointer;
+}
+
+.play_pause_button{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+.tilte{
+  position: absolute;
+  font-size: 25px;
+  font-weight: bold;
+  color: #fff;
+  bottom: 20px;
+  left: 50px;
+}
+
+.like_comment_share{
+  position: absolute;
+  right: 80px;
+  bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+}
+
+.like_button, .comment_button,.share_button{
+  cursor: pointer;
+}
+
+.swipe_container{
+  display: flex;
+  position: absolute;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.swipe_up, .swipe_down{
+  cursor: pointer;
+}
+
+@media(max-width:992px){
+  video{
+    width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .swipe_container{
+    display: none;
   }
 }
