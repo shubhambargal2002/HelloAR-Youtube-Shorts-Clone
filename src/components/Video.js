@@ -4,7 +4,9 @@ import { CommentSvg, DownSvg, LikeSvg, ShareSvg, UpSvg } from "../svg";
 
 const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
   const [isPlaying, setIsPlaying] = useState(false); // Track play/pause state
+  const [progress, setProgress] = useState(0); // Track video progress
   const videoRef = useRef();
+  const progressBarRef = useRef();
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -26,6 +28,15 @@ const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
       }
     };
 
+    const updateProgressBar = () => {
+      if (videoRef.current) {
+        const progressValue =
+          (videoRef.current.currentTime / videoRef.current.duration) * 100;
+        setProgress(progressValue);
+        progressBarRef.current.style.width = `${progressValue}%`;
+      }
+    };
+
     if (document.visibilityState === "visible" && document.hasFocus()) {
       playVideo();
     }
@@ -40,9 +51,11 @@ const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
     };
 
     document.addEventListener("visibilitychange", visibilityChangeHandler);
+    videoRef.current.addEventListener("timeupdate", updateProgressBar);
 
     return () => {
       document.removeEventListener("visibilitychange", visibilityChangeHandler);
+      videoRef.current.removeEventListener("timeupdate", updateProgressBar);
     };
   }, [inView]);
 
@@ -72,6 +85,27 @@ const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
       </div>
 
       <p className="tilte">{title}</p>
+
+      {/* Custom progress bar */}
+      <div
+        style={{
+          width: "100%",
+          height: "5px",
+          backgroundColor: "#8f8f8f",
+          position: "absolute",
+          bottom: "0px",
+        }}
+      >
+        <div
+          ref={progressBarRef}
+          style={{
+            height: "100%",
+            width: `${progress}%`,
+            backgroundColor: "#fff",
+          }}
+        ></div>
+      </div>
+
       <div className="swipe_container">
         <UpSvg onClick={() => handleSwipe("up")} />
         <DownSvg onClick={() => handleSwipe("down")} />
