@@ -2,8 +2,8 @@ import React, { useRef, useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { CommentSvg, DownSvg, LikeSvg, ShareSvg, UpSvg } from "../svg";
 
-const Video = ({ src, title, handleSwipe }) => {
-  const [liked, setLiked] = useState(false);
+const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
+  // const [liked, setLiked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false); // Track play/pause state
   const videoRef = useRef();
   const [ref, inView] = useInView({
@@ -17,7 +17,9 @@ const Video = ({ src, title, handleSwipe }) => {
 
         if (playPromise !== undefined) {
           playPromise
-            .then(() => setIsPlaying(true))
+            .then(() => {
+              setIsPlaying(true);
+            })
             .catch((error) => {
               console.error("Autoplay failed:", error);
             });
@@ -58,14 +60,14 @@ const Video = ({ src, title, handleSwipe }) => {
 
   return (
     <div ref={ref} className="video_container">
-      <video ref={videoRef} src={src} autoPlay loop />
+      <video ref={videoRef} src={src} autoPlay loop/>
 
       <button onClick={handlePlayPause} className="play_pause_button">
         {isPlaying ? "" : ""}
       </button>
 
       <div className="like_comment_share">
-        <LikeSvg onClick={() => setLiked((prev) => !prev)} liked={liked} />
+        <LikeSvg onClick={handleLike} liked={liked} />
         <CommentSvg />
         <ShareSvg />
       </div>
