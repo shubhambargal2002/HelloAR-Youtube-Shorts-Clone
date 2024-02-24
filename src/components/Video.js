@@ -3,7 +3,6 @@ import { useInView } from "react-intersection-observer";
 import { CommentSvg, DownSvg, LikeSvg, ShareSvg, UpSvg } from "../svg";
 
 const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
-  // const [liked, setLiked] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false); // Track play/pause state
   const videoRef = useRef();
   const [ref, inView] = useInView({
@@ -60,7 +59,7 @@ const Video = ({ src, title, handleSwipe, handleLike, liked }) => {
 
   return (
     <div ref={ref} className="video_container">
-      <video ref={videoRef} src={src} autoPlay loop/>
+      <video ref={videoRef} src={src} autoPlay loop />
 
       <button onClick={handlePlayPause} className="play_pause_button">
         {isPlaying ? "" : ""}
