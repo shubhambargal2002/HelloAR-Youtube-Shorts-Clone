@@ -4,12 +4,12 @@ import "./App.css";
 
 function App() {
   const videos = [
-    { src: "bappa.mp4", title: "Video 1" },
-    { src: "maharaj.mp4", title: "Video 2" },
-    { src: "love.mp4", title: "Video 2" },
-    { src: "birthday.mp4", title: "Video 2" },
-    { src: "dandiya.mp4", title: "Video 2" },
-    { src: "sit.mp4", title: "Video 2" },
+    { src: "bappa.mp4", title: "bappa" },
+    { src: "maharaj.mp4", title: "maharaj" },
+    { src: "love.mp4", title: "love" },
+    { src: "birthday.mp4", title: "birthday" },
+    { src: "dandiya.mp4", title: "dandiya" },
+    { src: "sit.mp4", title: "sit" },
   ];
   const [currentVideo, setCurrentVideo] = useState(0);
 
@@ -32,13 +32,10 @@ function App() {
     }
   };
 
-  // Extracting file name from the src
-  const fileName = videos[currentVideo].src.split(".")[0];
-
   return (
     <Video
       src={videos[currentVideo].src}
-      title={fileName}
+      title={videos[currentVideo].title.charAt(0).toUpperCase() + videos[currentVideo].title.slice(1)}
       handleSwipe={handleSwipe}
       handleLike={handleLike}
       liked={likedStates[currentVideo]}
