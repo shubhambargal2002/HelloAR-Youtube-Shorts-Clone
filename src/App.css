@@ -78,10 +78,6 @@ video {
     width: 100%;
   }
 
-  .swipe_container {
-    display: none;
-  }
-
   .like_comment_share {
     right: 40px;
   }
